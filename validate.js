@@ -1,6 +1,6 @@
 // Checks for the validation attributes and calls the respective validation functions.
 //
-// @param [DOM Object] el
+// @param [DOM Object] el Input element
 window.validate = function(el) {
 	if(el.attributes['required']) {
 		validateRequired(el);
@@ -15,7 +15,7 @@ window.validate = function(el) {
 
 // Validates if the field value is not set or is undefined or false
 //
-// @param [DOM Object] el
+// @param [DOM Object] el Input element
 window.validateRequired = function(el) {
 	var namespace = 'required'
 	if(el.value == '' || (el.type == 'checkbox' && el.checked == false)) {
@@ -27,7 +27,7 @@ window.validateRequired = function(el) {
 
 // Validates if the field value of the element has space
 //
-// @param [DOM Object] el
+// @param [DOM Object] el Input element
 window.validateNoSpace = function(el) {
 	var namespace = 'no-space';
 	if(el.value.match(/\s/)) {
@@ -39,7 +39,7 @@ window.validateNoSpace = function(el) {
 
 // Validates if the email is correct
 //
-// @param [DOM Object] el
+// @param [DOM Object] el Input element
 window.validateEmail = function(el) {
 	var namespace = 'email';
 	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -55,7 +55,7 @@ window.validateEmail = function(el) {
 // if the span doesn't exist.
 // If the span exists, it just sets its visibility.
 //
-// @param [DOM Object] el
+// @param [DOM Object] el Input element
 // @param [String] msg Error message
 // @param [String] namespace A string representing the namespace of the error.
 //							 Required to make sure the ID of the appended error
@@ -73,7 +73,7 @@ window.showError = function(el, msg, namespace) {
 // Hides the error message.
 // Checks if the error element has been appended. If it is, it hides the element.
 //
-// @param [DOM Object] el
+// @param [DOM Object] el Input element
 // @param [String] namespace A string representing the namespace of the error.
 //							 Required to make sure the ID of the appended error
 //							 element is unique.
@@ -90,7 +90,7 @@ window.hideError = function(el, namespace) {
 // Ideally, +el+ is the input field. If a validation fails,
 // a span with error message is appended using this function.
 //
-// @param [DOM Object] el
+// @param [DOM Object] el Input element
 // @param [String] msg
 // @param [String] namespace A string representing the namespace of the error.
 //							 Required to make sure the ID of the appended error
@@ -100,5 +100,6 @@ window.appendErrorElement = function(el, msg, namespace) {
 	var parent = el.parentElement;
 	span.innerHTML = msg;
 	span.id = 'error' + '-' + el.name + '-' + namespace;
+	span.className = 'error';
 	parent.appendChild(span);
 }
