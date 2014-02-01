@@ -179,7 +179,7 @@
 					<div id="q1" class="survey-question" style='display:block'>
 						<div class="inner-question">Question 1: Are you male, female or something in between?</div>
 						<div class="inner-answer">I am<br>
-							<input type="radio" name="sex" value="male">&nbsp;Male<br>
+							<input type="radio" name="sex" value="male" checked>&nbsp;Male<br>
 							<input type="radio" name="sex" value="female">&nbsp;Female<br>
 							<input type="radio" name="sex" value="female">&nbsp;In-between
 						</div>
@@ -188,14 +188,14 @@
 					<div id="q2" class="survey-question">
 						<div class="inner-question">Question 2: What are your deepest fantasies and fetishes?</div>
 						<div class="inner-answer">
-							<textarea style="overflow:hidden">Let it all out</textarea>
+							<textarea style="overflow:hidden" onkeyup='validate(this)' name='q2-answer' required>Let it all out</textarea>
 						</div>
 						<div class='button' onclick='showQuestion(3)'>Next</div>
 					</div>
 					<div id="q3" class="survey-question">
 						<div class="inner-question">Question 3: What is your email so we can send you all the info?</div>
 						<div class="inner-answer">
-							<input type="text" value="Here's my email" style="width:100%" onkeyup='validate(this)' email required no-space>
+							<input type="text" value="Here's my email" name='email' style="width:100%" onkeyup='validate(this)' email required no-space>
 						</div>
 						<div class='button' onclick='showQuestion(4)'>Next</div>
 					</div>
