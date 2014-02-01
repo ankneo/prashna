@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<title></title>
+		<style>	
+			body {
+				margin: 0px;
+			}
+			.survey-question {
+				margin:10px;
+				padding:10px;
+				font-family:sans-serif;
+				color: #222;
+				display: none;
+			}
+			.survey-answer {
+				border:solid black 1px;
+				margin:10px;
+				padding:10px;
+			}
+			.survey-button {
+				font-size: 14px;
+				background-color: #49AD40 !important;
+			}
+			textarea {
+				width:100%;
+			}
+			
+			.button {
+				display: inline-block;
+				padding: 6px 12px;
+				cursor: pointer;
+				margin-top: 5px;
+				color: #ffffff;
+				background-color: #407BAD;
+				border: 0px solid #357ebd;
+				border-radius: 2px;
+			}
+			.inner-question {
+				margin-bottom: 9px;
+				color: #555;
+				line-height: 1.4;
+			}
+			.inner-answer {
+				border-left: 2px solid #92C092;
+				padding-left: 10px;
+				margin-left: 10px;
+				margin-bottom: 15px;
+				color: #555;
+				line-height: 1.4;
+			}
+		</style>
+		<script type='text/javascript'>
+			// Show the question number
+			//
+			// @param [Integer] question_no
+			window.showQuestion = function(question_no) {
+				if(window.active) {
+					document.getElementById('q' + window.active).style.display = 'none';
+				}
+				window.active = question_no;
+				document.getElementById('q' + window.active).style.display = 'block';
+			}
+			window.active = 1;
+		</script>
+	</head>
+	<body>
+		
+			<form name="prashnaform">
+				<div id='question-boxes'>
+					<div id="q1" class="survey-question" style='display:block'>
+						<div class="inner-question">Question 1: Are you male, female or something in between?</div>
+						<div class="inner-answer">I am<br>
+							<input type="radio" name="sex" value="male">&nbsp;Male<br>
+							<input type="radio" name="sex" value="female">&nbsp;Female<br>
+							<input type="radio" name="sex" value="female">&nbsp;In-between
+						</div>
+						<div class='button' onclick='showQuestion(2)'>Next</div>
+					</div>
+					<div id="q2" class="survey-question">
+						<div class="inner-question">Question 2: What are your deepest fantasies and fetishes?</div>
+						<div class="inner-answer">
+							<textarea style="overflow:hidden">Let it all out</textarea>
+						</div>
+						<div class='button' onclick='showQuestion(3)'>Next</div>
+					</div>
+					<div id="q3" class="survey-question">
+						<div class="inner-question">Question 3: What is your email so we can send you all the info?</div>
+						<div class="inner-answer">
+							<input type="text" value="Here's my email" style="width:100%">
+						</div>
+						<div class='button' onclick='showQuestion(4)'>Next</div>
+					</div>
+					<div id="q4" class="survey-question">
+						<div class="inner-question">Question 4: What games do you enjoy playing?</div>
+						<div class="inner-answer">
+							<input type="checkbox" name="games" value="male">&nbsp;FIFA<br>
+							<input type="checkbox" name="games" value="female">&nbsp;Soul Calibur<br>
+							<input type="checkbox" name="games" value="female">&nbsp;Pokemon
+						</div>
+						<input class="button survey-button" type="button" value="Submit this">
+					</div>
+				</div>
+			</form>
+
+	</body>
+</html>
